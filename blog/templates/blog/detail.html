@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../media/images/favicon-32x32.png">
 
-    <title>Jesper Svensson</title>
+    <title>{{ blog.title }}</title>
 
     <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -32,54 +32,27 @@
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link" href="http://twitter.com/beppenlin">Twitter</a>
             <a class="nav-item nav-link" href="{% static 'Jesper Svensson.pdf' %}">Resume</a>
-            <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+            <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
         </div>
     </nav>
     </header>
 
-    <main role="main">
-
-      <section class="jumbotron text-center">
-        <div class="container">
-            <img src="{% static 'P2250138 - kopia.JPG' %}" class="rounded-circle img-fluid" width="20%">
-          <h1 class="jumbotron-heading">Hi, I'm Jesper!</h1>
-          <p class="lead text-muted">Hey, my name is Jesper Svensson and I love making Django Websites, it's the thrill of handling the request that the people want!
-          </p>
-          <p>
-            <a href="mailto:svensson.jesper@pm.me" class="btn btn-primary my-2">Contact me!</a>
-          </p>
-        </div>
-      </section>
-
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-
-            {% for job in jobs.all %}
-
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" alt="Card image cap" src="{{ job.image.url }}" width="200px" height="200px" style="object-fit: cover">
-                <div class="card-body">
-                    <p class="card-text">{{ job.summary }}</p>
-                </div>
-              </div>
-            </div>
-             {% endfor %}
-
+    <main role="main" class="container">
+          <div class="blog-post">
+            <h2 class="blog-post-title text-center">{{ blog.title }}</h2>
+              <img src="{{ blog.image.url }}" class="img-thumbnail float-right img-fluid" alt="Image had an error, sorry 😥">
+            </p>
+            <p>{{ blog.body }} ...</p>
+              <p class="blog-post-meta">{{ blog.pub_date}} Written by: <a href="#">{{ user.get_username }}</a>
           </div>
-        </div>
-      </div>
-
     </main>
 
-    <footer class="text-muted">
+      <footer class="text-muted">
       <div class="container">
         <p class="float-right">
           {% now "jS F H:i" %}
-          <a href="#">Back to top</a>
+          <a href="{% url 'allblogs' %}">Back</a>
         </p>
         <p>&copy; Jesper Svensson™ {% now "Y" %} </p>
       </div>
