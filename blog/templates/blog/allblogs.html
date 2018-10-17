@@ -58,7 +58,7 @@
           <div class="blog-post">
 
             <h2 class="blog-post-title"><a href="{% url 'detail' blog.id%}">{{ blog.title }}</a></h2>
-              <img src="{{ blog.image.url }}" class="img-thumbnail float-right img-fluid" alt="Image had an error, sorry 😥">
+              <img src="{{ blog.image.url }}" class="img-fluid" alt="Image had an error, sorry 😥">
             <p class="blog-post-meta">{{ blog.pub_date_pretty }} Written by: <a href="#">{{ user.get_username }}</a></p>
 
             <p>{{ blog.summary }} <a href="{% url 'detail' blog.id%}">...</a></p>

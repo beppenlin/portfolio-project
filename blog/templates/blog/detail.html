@@ -43,7 +43,7 @@
     <main role="main" class="container">
           <div class="blog-post">
             <h2 class="blog-post-title text-center">{{ blog.title }}</h2>
-              <img src="{{ blog.image.url }}" class="img-thumbnail float-right img-fluid" alt="Image had an error, sorry 😥">
+              <img src="{{ blog.image.url }}" class="img-fluid" alt="Image had an error, sorry 😥">
             </p>
             <p>{{ blog.body }} ...</p>
               <p class="blog-post-meta">{{ blog.pub_date}} Written by: <a href="#">{{ user.get_username }}</a>
